@@ -1,0 +1,62 @@
+@import "@/assets/styles/color";
+
+#join_page {
+  text-align: center;
+}
+
+.join_contents::v-deep {
+  > h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    > em {
+      font-weight: 700;
+      color: $color_main;
+    }
+  }
+
+  .form_items {
+    width: 100%;
+    .input_wrap {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      max-width: 500px;
+      margin: 0 auto;
+      margin-bottom: 1.5rem;
+      .input_title {
+        width: 180px;
+        text-align: left;
+        font-size: 1rem;
+        margin-right: 0.8rem;
+      }
+      .input_contents {
+        flex: 1;
+        > input {
+          width: 100%;
+          height: 48px;
+          padding: 0 16px;
+          border: 1px solid $color_DDD;
+          border-radius: 10px;
+        }
+        > select {
+          width: 100%;
+          height: 48px;
+          padding: 0 16px;
+          border: 1px solid $color_DDD;
+          border-radius: 10px;
+        }
+      }
+
+      input[type=submit] {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: $color_main;
+        color: $color_FFF;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 10px;
+      }
+    }
+  }
+}

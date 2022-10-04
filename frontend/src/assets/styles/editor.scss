@@ -1,0 +1,133 @@
+@import "@/assets/styles/color";
+
+#editor_page {}
+
+.editor_contents::v-deep {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    .editor_wrap {
+        .editor_item {
+            width: 100%;
+            .item {
+                font-size: 1rem;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                > span { font-size: .7rem; color: $color_main; }
+            }
+            .preview {
+                position: relative;
+                width: 100px;
+                height: 100px;
+                > span {
+                    display: flex;
+                    text-align: center;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid $color_DDD;
+                    border-radius: 10px;
+                }
+                .preview_img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position-x: center;
+                    z-index: 10;
+                }
+                > input[type=file] {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 11;
+                    cursor: pointer;
+                }
+            }
+            > input[type=text] {
+                width: 100%;
+                height: 32px;
+                padding: 0 1rem;
+                border: 1px solid $color_DDD;
+                border-radius: 10px;
+            }
+            > textarea {
+                width: 100%;
+                resize: none;
+                border: 1px solid $color_DDD;
+                border-radius: 10px;
+                padding: .5rem;
+            }
+        }
+        > button {
+            width: 100%;
+            height: 56px;
+            background-color: $color_main;
+            color: $color_FFF;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 10px;
+            border: 0;
+        }
+    }
+}
+
+
+// List
+.list_contents::v-deep {
+    display: flex;
+    flex-wrap: wrap;
+    .list_card {
+        width: 25%;
+        height: auto;
+        padding: .5rem;
+        .list_image {
+            width: 100%;
+            height: 180px;
+            margin-bottom: .8rem;
+            > img { width: 100%; height: 100%; object-fit: cover; }
+        }
+        .list_info {
+            .list_title { font-size: 1rem; font-weight: 700; }
+            .list_contents { font-size: .8rem; }
+            .list_nick { font-size: .8rem; color: $color_main; }
+        }
+    }
+}
+
+// Read
+.read_contents::v-deep {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $color_DDD;
+    border-radius: 10px;
+    padding: .9rem;
+    .read_close {
+        position: absolute;
+        top: .9rem;
+        right: .9rem;
+    }
+    .read_title {
+        width: 100%;
+        > h1 {
+            > em { font-size: 2rem; font-weight: 700; }
+        }
+    }
+    .read_image {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+        > img { width: 100%; height: 100%; object-fit: cover; }
+    }
+    .read_contents1 { font-size: 2rem; font-weight: 700; color: $color_main; }
+    .read_contents2 { font-size: 1rem; font-weight: 700; }
+    .read_contents3 { font-size: .8rem; font-weight: 500; }
+}
