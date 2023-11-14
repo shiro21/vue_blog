@@ -7,7 +7,9 @@
 
 ## Tool
 - Front-End : Vue
+npm run serve
 - Back-End : NodeJS ( Javascript )
+nodemon app
 MySQL
 
 ### Join ( 회원가입 )

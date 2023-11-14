@@ -156,7 +156,6 @@ router.post('/user', (req, res) => {
   lib.connections.query(sql_id, (err, result) => {
     if (err) return console.error('id', err);
     
-    console.log(result[0])
     if (result[0]) {
       if (result[0].img !== undefined || result[0].img !== null) {
         result[0].img = result[0].img.toString('utf8');
