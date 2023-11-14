@@ -62,10 +62,15 @@
                         > li {
                             line-height: 2rem;
                             .profile_img {
+                                margin: 0 auto;
+                                width: 130px;
+                                height: 130px;
                                 > img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
                             }
                             .profile_info {
-                                line-height: 1;
+                                margin: 1rem 0;
+                                text-align: center;
+                                line-height: 1.2;
                                 .profile_id { font-size: .7rem; font-weight: 700; color: $color_main; }
                                 .profile_nick { font-size: 1rem; font-weight: 500; color: $color_222; }
                             }

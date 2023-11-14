@@ -4,7 +4,7 @@
     
     const props = defineProps(['readData'])
     const readData = ref()
-    const data = ref(['큰 글씨', '중간 글씨', '작은 글씨'])
+    const data = ref(['큰 글씨( v-for 이용해서 여러줄 만들기 ): ', '중간 글씨: ', '작은 글씨: '])
 
     onMounted(() => {
         readData.value = props.readData
