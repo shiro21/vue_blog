@@ -157,7 +157,9 @@ router.post('/user', (req, res) => {
     if (err) return console.error('id', err);
     
     if (result[0]) {
-      if (result[0].img !== undefined || result[0].img !== null) {
+      if (result[0].img === undefined || result[0].img === null) {
+        result[0].img = "";
+      } else {
         result[0].img = result[0].img.toString('utf8');
       }
     }

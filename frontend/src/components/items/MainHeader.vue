@@ -14,6 +14,9 @@
         if (props.userData) {
             loginConfirm.value = true
             user.value = props.userData
+        } else {
+            alert("로그인 하셔야합니다.");
+            router.push("/login");
         }
     })
 
@@ -58,8 +61,8 @@
                     <ul class="item_list" v-if="listConfirm">
                         <li @click="goProfile">
                             <div class="profile_img">
-                                <img v-if="user.img === null" src="@/assets/images/cat.jpg" alt="">
-                                <img v-if="user.img !== null" :src="user.img" alt="">
+                                <img v-if="user.img === ''" src="@/assets/images/profile.jpg" alt="기본 프로필">
+                                <img v-if="user.img !== ''" :src="user.img" alt="">
                             </div>
                             <div class="profile_info">
                                 <div class="profile_id">{{user.id}}</div>

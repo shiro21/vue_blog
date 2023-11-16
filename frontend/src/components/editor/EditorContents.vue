@@ -1,11 +1,13 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, inject } from 'vue'
+    import router from '@/js/router'
     import { axios, editor } from '@/js/axios'
 
     const formData = ref({
         title: '',
         contents: '',
-        img: ''
+        img: '',
+        owner: inject('$store').state.token
     })
     const preview = ref()
 
@@ -22,13 +24,13 @@
     }
 
     const editorCreate = async () => {
-        formData.value.owner = localStorage.getItem('vue-blog')
-
+        
         console.log(formData.value)
         await axios.post(`${editor}/create`, formData.value)
         .then(res => {
             if (res.data.code === 'y') {
                 console.log('성공')
+                router.push("/");
             } else {
                 console.log('실패')
             }

@@ -4,7 +4,7 @@
     
     const props = defineProps(['readData'])
     const readData = ref()
-    const data = ref(['큰 글씨( v-for 이용해서 여러줄 만들기 ): ', '중간 글씨: ', '작은 글씨: '])
+    // const data = ref(['큰 글씨( v-for 이용해서 여러줄 만들기 ): ', '중간 글씨: ', '작은 글씨: '])
 
     onMounted(() => {
         readData.value = props.readData
@@ -27,10 +27,13 @@
         <div class="read_image">
             <img :src="readData.image" alt="" />
         </div>
+        <p>
+            {{ readData.contents }}
+        </p>
 
-        <div :class="`read_contents${index + 1}`" v-for="(item, index) of data" :key="index">
+        <!-- <div :class="`read_contents${index + 1}`" v-for="(item, index) of data" :key="index">
             {{item}}
             {{readData.contents}}
-        </div>
+        </div> -->
     </article>
 </template>

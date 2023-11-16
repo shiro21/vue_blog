@@ -4,20 +4,27 @@
   import MainContents from '@/components/main/MainContents.vue'
   import { axios, editor, auth } from '@/js/axios'
   import { computed } from '@vue/reactivity';
+import router from '@/js/router';
 
   const token = ref({
     id: ''
   })
   const userData = ref()
-  const dataArray = ref()
+  const dataArray = ref([])
   const text = ref('')
 
   onMounted(async() => {
     token.value.id = inject('$store').state.token
 
+    if(token.value.id === null) {
+      alert("로그인 하셔야 합니다.");
+      router.push("/login");
+    }
     await axios.post(`${editor}/read`)
     .then(res => {
+      console.log(res.data.data)
       dataArray.value = res.data.data
+      console.log(dataArray.value);
     })
 
     await axios.post(`${auth}/user`, token.value)
@@ -42,20 +49,21 @@
     })
   })
 
-
 </script>
 
 <template>
   <section id="main_page">
     <div class="container">
-      <div class="row" v-if="dataArray">
+      <div class="row">
         <MainHeader v-if="userData" :userData="userData" @create:input="handleUpdate" />
-        <MainContents :dataArray="filteredList" />
-
-        <!-- <div v-for="item of filteredList" :key="item">
-          {{item}}
-        </div> -->
+        <MainContents v-if="dataArray.length > 0" :dataArray="filteredList" />
+        <div v-if="dataArray.length === 0">
+          현재 올라온 블로그 내용이 없습니다.
+        </div>
       </div>
+      <!-- <div class="row" v-if="dataArray.length === 0">
+        <MainHeader v-if="userData" :userData="userData" @create:input="handleUpdate" />
+      </div> -->
     </div>
 
   </section>

@@ -53,7 +53,7 @@ export default createStore({
     },
     plugins: [
         createPersistedState({
-            paths: ['token']
+            paths: ['token'],
         })
     ],
 })

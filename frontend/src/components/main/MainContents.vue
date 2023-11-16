@@ -6,6 +6,7 @@
     const props = defineProps(['dataArray'])
     const dataArray = ref()
 
+    console.log(props.dataArray);
     onMounted(() => {
     })
     watch(() => {
@@ -25,6 +26,8 @@
             break
         }
     }
+
+    console.log(dataArray);
 </script>
 
 <template>

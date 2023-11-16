@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { axios, auth } from '@/js/axios'
+import router from '@/js/router';
 
 
   onMounted(() => {
@@ -17,7 +18,6 @@ import { axios, auth } from '@/js/axios'
   })
 
   const join = async () => {
-    console.log(formData.value.birth)
     if (formData.value.id === '' || formData.value.id.length < 5) return alert("아이디를 5자 이상 입력해주세요.")
     else if (formData.value.email === '') return alert("이메일을 입력해주세요.")
     else if (formData.value.password !== formData.value.passwordConfirm) return alert("비밀번호를 확인해주세요.")
@@ -34,12 +34,12 @@ import { axios, auth } from '@/js/axios'
             console.log(result)
           })
         } else if (res.data.code === 'id') {
-          alert('아이디가 이미 존재합니다.')
+          return alert('아이디가 이미 존재합니다.')
         } else if (res.data.code === 'nick') {
-          alert('닉네임이 이미 존재합니다.')
+          return alert('닉네임이 이미 존재합니다.')
         }
+        router.push("/login");
 
-        console.log(res.data)
       })
     }
   }
@@ -56,7 +56,7 @@ import { axios, auth } from '@/js/axios'
           아이디를 입력해주세요.
         </div>
         <div class="input_contents">
-          <input type="text" v-model="formData.id" />
+          <input placeholder="5글자 이상 입력해주세요." type="text" v-model="formData.id" />
         </div>
       </div>
 
@@ -101,7 +101,7 @@ import { axios, auth } from '@/js/axios'
           생년월일 입력해주세요.
         </div>
         <div class="input_contents">
-          <input type="number" v-model="formData.birth" />
+          <input placeholder="ex: 930419" type="number" v-model="formData.birth" />
         </div>
       </div>
 

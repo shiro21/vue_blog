@@ -6,6 +6,7 @@ const uuid = lib.plugins.uuidv4;
 
 router.post('/create', (req, res) => {
     const item = req.body;
+    console.log(item["owner"]);
     const _uid = uuid();
 
     const _sql = `
@@ -47,6 +48,11 @@ router.post('/read', (req, res) => {
                 }
             }
 
+        } else {
+            res.status(200).json({
+                code: "y",
+                data: []
+            })
         }
     })
 });
